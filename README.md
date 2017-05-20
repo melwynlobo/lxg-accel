@@ -30,6 +30,8 @@ Module building procedure
 
 1. Compiling lxg-accel.ko driver module, requires kernel headers for the kernel image running on your beagleboe black. 
 	
+		[TO SKIP BELOW STEPS SIMPLY untar linux-headers-3.8.13-bone70.tgz, using tar xfz linux-headers-3.8.13-bone70.tgz]
+
 		To download kernel headers to current folder, enter target (192.168.7.2):
 			
 			sudo apt-get install linux-headers-`uname -r`
@@ -38,14 +40,40 @@ Module building procedure
 
 			scp -r 192.168.7.2:/usr/src/linux-headers-3.8.13-bone70 ./
 
-			(Copy x86 cross compiled kernel/scripts folder to ./linux-headers-3.8.13-bone70)
+			Next steps are on host (Debian Wheezy), for module compilation procedure. End result of follwing steps is to copy x86 cross compiled kernel/scripts folder to ./linux-headers-3.8.13-bone70) 
+
+
+			Install Debian Wheezy cross compiler toolchain for beaglebon black
+
+			sudo apt-get install crossbuild-essential-armhf
+
+			Download kernel for building kernel using cross compiler. (Steps taken from "elinux.org/Building_BBB_Kernel#Downloading_and_building_the_Linux_Kernel")
+
+			git clone git://github.com/beagleboard/kernel.git
+
+			Need to perform some further preparations before kernel is built:
+
+			cd kernel
+
+			git checkout 3.8
+
+			./patch.sh
+
+			cp configs/beaglebone kernel/arch/arm/configs/beaglebone_defconfig
 
 			cp -r ~/kernel/scripts linux-headers-3.8.13-bone70/	
 
-			make
+			wget http://arago-project.org/git/projects/?p=am33x-cm3.git\;a=blob_plain\;f=bin/am335x-pm-firmware.bin\;hb=HEAD -O kernel/firmware/am335x-pm-firmware.bin
+
+			cd kernel 
+
+			make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- beaglebone_defconfig uImage dtbs
+		
+			After making kernel, overwrite kernel/scripts folder to linux-headers-3.8.13-bone70/ folder, to ensure module building is successful from here:
+
+			cp -r ~kernel/scripts $(GITHUBCLONEDIR)/lxg-accel/linux-headers-3.8.13-bone70/
 			
-			#Above command builds the driver module
-1. After downloading kernel headers, (I have alredy uploaded kernel headers used for my beablebone black on this repository, just type "make" on current folder to build the lxg-accel.ko driver module.. Copy the driver to /lib/modules or any folder of your choice
+1. After downloading kernel headers, (I have alredy uploaded linux-3.8.13-bone70.tgz kernel headers used for my beablebone black on this repository, just extract it and type "make" on current folder to build the lxg-accel.ko driver module.. Copy the driver to /lib/modules or any folder of your choice
 
 		scp lxg-accel.ko 192.168.7.2:/lib/modules
 
