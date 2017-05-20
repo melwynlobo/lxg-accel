@@ -1,4 +1,4 @@
-#LIS3DH Accelerometer driver
+**LIS3DH Accelerometer driver**
 
 Board Configuration Pin Mapping Table
 ======================================
@@ -18,7 +18,7 @@ Module building procedure
 
 1. Update dtc tool on local (Debian Wheezy) host. [OPTIONAL STEP if using precompiled lis3dh-00A0.dtbo in this folder]
 
-	Execute ./dtc.sh
+	./dtc.sh
 
 1. Compile device tree overlay cape to Binary blob [OPTIONAL STEP if using precompiled lis3dh-00A0.dtbo provided in this folder]
 
@@ -30,7 +30,7 @@ Module building procedure
 
 1. Compiling lxg-accel.ko driver module, requires kernel headers for the kernel image running on your beagleboe black. 
 	
-		[TO SKIP BELOW STEPS SIMPLY untar linux-headers-3.8.13-bone70.tgz, using tar xfz linux-headers-3.8.13-bone70.tgz]
+		[YOU MAY SKIP BELOW STEPS BY using linux-headers-3.8.13-bone70.tgz; Command to extract--> "tar xfz linux-headers-3.8.13-bone70.tgz". Now directly jump to build module bullet item ]
 
 		To download kernel headers to current folder, enter target (192.168.7.2):
 			
