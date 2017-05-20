@@ -1,0 +1,40 @@
+/*
+ * Copyright (C) 2012 Texas Instruments Incorporated - http://www.ti.com/
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ */
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "ti,beaglebone", "ti,beaglebone-black";
+
+	part-number = "lis3dh";
+	version = "00A0";
+
+	exclusive-use =
+		/* the pin header uses */
+		"P9.19",	/* i2c1_sda */
+		"P9.18",	/* i2c1_scl */
+		/* the hardware ip uses */
+		"i2c2";
+
+	fragment@0 {
+		target = <&i2c2>;
+
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <>;
+
+			#address-cells = <1>;
+			#size-cells = <0>;
+			lis3dh@18 {
+				compatible = "st,BBLIS3DH";
+				reg = <0x18>;
+			};
+		};
+	};
+};
