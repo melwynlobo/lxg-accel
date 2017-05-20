@@ -7,6 +7,8 @@
 ###Board Configuration Pin Mapping Table
 ======================================
 Using Jumper cable connect the LIS3DH breakout 
+
+
 P9 connector on BB |Adafruit LIS3DH
 -------------------|------------------
 Pin 1 (DGND)       | Gnd
