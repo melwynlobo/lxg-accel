@@ -30,10 +30,21 @@ Module building procedure
 
 1. Compiling lxg-accel.ko driver module, requires kernel headers for the kernel image running on your beagleboe black. 
 	
-		To download kernel headers to current folder, enter:
+		To download kernel headers to current folder, enter target (192.168.7.2):
 			
-			sudo apt-get install linux-headers-`uname -r`; cp -r /usr/src/linux-headers-`uname -r` ./`
+			sudo apt-get install linux-headers-`uname -r`
 
+			logout (exit to host again)
+
+			scp -r 192.168.7.2:/usr/src/linux-headers-3.8.13-bone70 ./
+
+			(Copy x86 cross compiled kernel/scripts folder to ./linux-headers-3.8.13-bone70)
+
+			cp -r ~/kernel/scripts linux-headers-3.8.13-bone70/	
+
+			make
+			
+			#Above command builds the driver module
 1. After downloading kernel headers, (I have alredy uploaded kernel headers used for my beablebone black on this repository, just type "make" on current folder to build the lxg-accel.ko driver module.. Copy the driver to /lib/modules or any folder of your choice
 
 		scp lxg-accel.ko 192.168.7.2:/lib/modules
