@@ -1,10 +1,6 @@
-# lxg-accel
 #LIS3DH Accelerometer driver
 
-##Solution Test Setup
-======================================
-
-###Board Configuration Pin Mapping Table
+Board Configuration Pin Mapping Table
 ======================================
 Using Jumper cable connect the LIS3DH breakout 
 
@@ -17,7 +13,7 @@ Pin 15 (GPIO_48)   | INT
 Pin 19 (I2C2_SCL)  | SCL
 Pin 20 (I2C2_SDA)  | SDA
 
-###Module building procedure
+Module building procedure
 =============================
 
 1. Update dtc tool on local (Debian Wheezy) host. [OPTIONAL STEP]
@@ -32,7 +28,13 @@ Pin 20 (I2C2_SDA)  | SDA
 
 		scp lis3dh-00A0.dtbo 192.168.7.2:/lib/firmware/
 
-1. Compile lxg-accel.ko driver module, just type make on current folder. Copy the driver to /lib/modules or any folder of your choice
+1. Compiling lxg-accel.ko driver module, requires kernel headers for the kernel image running on your beagleboe black. 
+	
+		To download kernel headers to current folder, enter:
+			
+			sudo apt-get install linux-headers-`uname -r`; cp -r /usr/src/linux-headers-`uname -r` ./`
+
+1. After downloading kernel headers, (I have alredy uploaded kernel headers used for my beablebone black on this repository, just type "make" on current folder to build the lxg-accel.ko driver module.. Copy the driver to /lib/modules or any folder of your choice
 
 		scp lxg-accel.ko 192.168.7.2:/lib/modules
 
@@ -50,17 +52,31 @@ Pin 20 (I2C2_SDA)  | SDA
 	Sample log snippet:
 
 -147,-1005,-43
+
 -147,-1005,-43
+
 -147,-1005,-43
+
 -147,-1005,-43
+
 -147,-1005,-43
+
 -147,-1005,-43
+
 -137,-1012,-60
+
 -137,-1012,-60
+
 -137,-1012,-60
+
 -137,-1012,-60
+
 -137,-1012,-60
+
 -125,-456,36
+
 -125,-456,36
+
 -125,-456,36
+
 
