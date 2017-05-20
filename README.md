@@ -16,11 +16,11 @@ Pin 20 (I2C2_SDA)  | SDA
 Module building procedure
 =============================
 
-1. Update dtc tool on local (Debian Wheezy) host. [OPTIONAL STEP]
+1. Update dtc tool on local (Debian Wheezy) host. [OPTIONAL STEP if using precompiled lis3dh-00A0.dtbo in this folder]
 
 	Execute ./dtc.sh
 
-1. Compile device tree overlay cape to Binary blob [OPTIONAL STEP]
+1. Compile device tree overlay cape to Binary blob [OPTIONAL STEP if using precompiled lis3dh-00A0.dtbo provided in this folder]
 
 		/usr/local/bin/dtc -O dtb -o lis3dh-00A0.dtbo -b 0 -@ lis3dh.dts	
 
