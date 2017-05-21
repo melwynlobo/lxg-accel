@@ -17,7 +17,7 @@ BeagleBone Black Toolchain
 ==========================
 Beaglebone Black platform consists of TI Sitara AM335X series of micro-processors which contain to Hard Floaing point support, armhf EABI). The other series is armel EABI which is not binary compatible with armhf EABI.
 
-To install the tool chain for armhf EABI for BeagleBona black cross compilation enter:
+To install the tool chain for armhf EABI for BeagleBone black cross compilation enter:
 
 	$ sudo apt-get install cross-build-essential-armhf
 
@@ -68,6 +68,8 @@ Module building procedure
 			./patch.sh
 
 			cp configs/beaglebone kernel/arch/arm/configs/beaglebone_defconfig
+		
+			make # You can stop midway after compilation starts, Idea is to just use  scripts/ folder which has x86 precompiled binaries (see below command)
 
 			cp -r ~/kernel/scripts linux-headers-3.8.13-bone70/	
 
