@@ -17,8 +17,11 @@
 
 	exclusive-use =
 		/* the pin header uses */
-		"P9.19",	/* i2c1_sda */
-		"P9.18",	/* i2c1_scl */
+		"P9.1",		/* DGND */
+		"P9.3",		/* VD_3V3 */
+		"P9.15",	/* GPIO_48 */
+		"P9.19",	/* i2c1_scl */
+		"P9.20",	/* i2c1_sda */
 		/* the hardware ip uses */
 		"i2c2";
 
