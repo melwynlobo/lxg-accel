@@ -13,6 +13,14 @@ Pin 15 (GPIO_48)   | INT
 Pin 19 (I2C2_SCL)  | SCL
 Pin 20 (I2C2_SDA)  | SDA
 
+BeagleBone Black Toolchain
+==========================
+Beaglebone Black platform consists of TI Sitara AM335X series of micro-processors which contain to Hard Floaing point support, armhf EABI). The other series is armel EABI which is not binary compatible with armhf EABI.
+
+To install the tool chain for armhf EABI for BeagleBona black cross compilation enter:
+
+	$ sudo apt-get install cross-build-essential-armhf
+
 Module building procedure
 =============================
 
