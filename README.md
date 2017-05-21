@@ -1,4 +1,4 @@
-**LIS3DH Accelerometer driver**
+*LIS3DH Accelerometer driver*
 
 Board Configuration Pin Mapping Table
 ======================================
@@ -69,15 +69,16 @@ Module building procedure
 
 			cp configs/beaglebone kernel/arch/arm/configs/beaglebone_defconfig
 		
-			make # You can stop midway after compilation starts, Idea is to just use  scripts/ folder which has x86 precompiled binaries (see below command)
 
 			cp -r ~/kernel/scripts linux-headers-3.8.13-bone70/	
 
+			# Below command gets device tree binary for full compilation, not needed for just building one module
 			wget http://arago-project.org/git/projects/?p=am33x-cm3.git\;a=blob_plain\;f=bin/am335x-pm-firmware.bin\;hb=HEAD -O kernel/firmware/am335x-pm-firmware.bin
 
 			cd kernel 
 
 			make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- beaglebone_defconfig uImage dtbs
+			# You can stop midway after compilation starts, Idea is to just use  scripts/ folder which has x86 precompiled binaries (see below command)
 		
 			After making kernel, overwrite kernel/scripts folder to linux-headers-3.8.13-bone70/ folder, to ensure module building is successful from here:
 
