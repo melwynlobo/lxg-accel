@@ -1,4 +1,14 @@
 #!/bin/sh -e
+
+#########################################################################
+# Copyright (C) 2017 LXGroup
+#
+# Author: Melwyn Lobo
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as
+# published by the Free Software Foundation.
+#
+#########################################################################
 	
 	check_dpkg () {
 	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
