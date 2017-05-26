@@ -16,7 +16,7 @@
 
 int fd = 0;
 
-void input_handler(int *dummy)
+void input_handler(int dummy)
 {
 	char buf[128];
 	int len;

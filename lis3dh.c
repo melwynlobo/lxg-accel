@@ -59,6 +59,7 @@
 #define	AXISDATA_REG 0x28
 #define WHOAMI_LIS3DH_ACC 0x33	/*Expctd content for WAI*/
 /*CONTROL REGISTERS*/
+#define POWON	0x47
 #define WHO_AM_I 0x0F	/*WhoAmI register*/
 #define	TEMP_CFG_REG 0x1F	/*temper sens control reg*/
 /* ctrl 1: ODR3 ODR2 ODR ODR0 LPen Zenable Yenable Zenable*/
@@ -499,22 +500,6 @@ error:
 		config[0], config[1], err);
 	return err;
 }
-/* */
-static int lis3dh_acc_register_write(struct lis3dh_acc_data *acc, u8 *buf,
-				     u8 reg_address, u8 new_value)
-{
-	int err = -1;
-	if (atomic_read(&acc->enabled)) {
-		/* Sets configuration register at reg_address
-		 *  NOTE: this is a straight overwrite  */
-		buf[0] = reg_address;
-		buf[1] = new_value;
-		err = lis3dh_acc_i2c_write(acc, buf, 1);
-		if (err < 0)
-			return err;
-	}
-	return err;
-}
 
 static int lis3dh_acc_get_acceleration_data(struct lis3dh_acc_data *acc,
 					    int *xyz)
@@ -764,17 +749,15 @@ static void lis3dh_early_suspend(struct early_suspend *es);
 static void lis3dh_early_resume(struct early_suspend *es);
 #endif
 
-#define POWON_50HZ	0x47
 int lis3dh_acc_power_on(struct i2c_client *client)
 {
 	struct lis3dh_acc_data *acc = i2c_get_clientdata(client);
     int status;
-    u8 i2c_power_on[] = {
+    u8 enable_power[] = {
         CTRL_REG1,
-        POWON_50HZ
+        POWON
     };
-    status = lis3dh_acc_i2c_write(acc, i2c_power_on, 
-							sizeof(i2c_power_on) / sizeof(u8));
+    status = lis3dh_acc_i2c_write(acc, enable_power, 2);
     return (status >= 0);
 }
 
@@ -826,9 +809,8 @@ static int lis3dh_acc_probe(struct i2c_client *client,const struct i2c_device_id
 	       LIS3DH_ACC_DEV_NAME, __func__, acc->irq1);
 	pr_debug("%s: %s has set irq2 to irq: %d\n",
 	       LIS3DH_ACC_DEV_NAME, __func__, acc->irq2);
-	gpio_request(GSENSOR_GINT, "sysfs");
+	gpio_request(GSENSOR_GINT, "GSENSOR_GINT");
 	gpio_direction_input(GSENSOR_GINT);
-	gpio_export(GSENSOR_GINT, false);
 	acc->irq1 = gpio_to_irq(GSENSOR_GINT);
 	printk("GPIO %d is valid? %s\n", GSENSOR_GINT, 
 			gpio_is_valid(GSENSOR_GINT) ? "yes" : "no");
@@ -985,7 +967,7 @@ static int lis3dh_acc_probe(struct i2c_client *client,const struct i2c_device_id
 	acc->resume_state[RES_TEMP_CFG_REG] = 0x00;
 	acc->resume_state[RES_FIFO_CTRL_REG] = 0x00;
 	acc->resume_state[RES_INT_CFG1] = 0x3F;
-	acc->resume_state[RES_INT_THS1] = 0x64;//defualt 100
+	acc->resume_state[RES_INT_THS1] = 0x04;//defualt 100
 	acc->resume_state[RES_INT_DUR1] = 0x30;
 	acc->resume_state[RES_INT_CFG2] = 0x00;
 	acc->resume_state[RES_INT_THS2] = 0x00;
