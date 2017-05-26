@@ -129,4 +129,16 @@ Module building procedure
 
 -125,-456,36
 
+Using BeagleBone SIGIO ASync Notification App
+===================================================
+1. To compile the app, just type "make". An executable named *app_sigio* will be created.
 
+2. To run the app, just type ./app_sigio
+
+	root@beaglebone:~# ./app_sigio 
+					-1048,1312,-182
+					-248,923,123
+					
+
+
+	

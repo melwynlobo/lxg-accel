@@ -1,0 +1,219 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AXISDATA_REG	lis3dh.c	59;"	d	file:
+CTRL_REG1	lis3dh.c	65;"	d	file:
+CTRL_REG2	lis3dh.c	66;"	d	file:
+CTRL_REG3	lis3dh.c	67;"	d	file:
+CTRL_REG3_I1_AOI1	lis3dh.c	107;"	d	file:
+CTRL_REG4	lis3dh.c	68;"	d	file:
+CTRL_REG5	lis3dh.c	69;"	d	file:
+CTRL_REG6	lis3dh.c	70;"	d	file:
+CTRL_REG6_HLACTIVE	lis3dh.c	109;"	d	file:
+CTRL_REG6_I2_TAPEN	lis3dh.c	108;"	d	file:
+DEBUG	lis3dh.h	28;"	d
+DEVICE_INFO	lis3dh.c	144;"	d	file:
+DEVICE_INFO_LEN	lis3dh.c	145;"	d	file:
+DTAP	lis3dh.c	111;"	d	file:
+ENABLE_HIGH_RESOLUTION	lis3dh.c	86;"	d	file:
+FIFO_CTRL_REG	lis3dh.c	71;"	d	file:
+FLAT	lis3dh.c	118;"	d	file:
+FUZZ	lis3dh.c	117;"	d	file:
+GSENSOR_GINT	lis3dh.c	149;"	d	file:
+GSENSOR_GINT1_GPI	lis3dh.c	147;"	d	file:
+GSENSOR_GINT2_GPI	lis3dh.c	148;"	d	file:
+G_MAX	lis3dh.c	47;"	d	file:
+HIGH_RESOLUTION	lis3dh.c	58;"	d	file:
+I2C_AUTO_INCREMENT	lis3dh.c	121;"	d	file:
+I2C_RETRIES	lis3dh.c	120;"	d	file:
+I2C_RETRY_DELAY	lis3dh.c	119;"	d	file:
+IA	lis3dh.c	99;"	d	file:
+INTERRUPT_MANAGEMENT	lis3dh.c	46;"	d	file:
+INT_CFG1	lis3dh.c	72;"	d	file:
+INT_CFG2	lis3dh.c	76;"	d	file:
+INT_DUR1	lis3dh.c	75;"	d	file:
+INT_DUR2	lis3dh.c	79;"	d	file:
+INT_SRC1	lis3dh.c	73;"	d	file:
+INT_SRC2	lis3dh.c	77;"	d	file:
+INT_THS1	lis3dh.c	74;"	d	file:
+INT_THS2	lis3dh.c	78;"	d	file:
+LIS3DH_ACC_DEV_NAME	lis3dh.h	35;"	d
+LIS3DH_ACC_DISABLE	lis3dh.h	77;"	d
+LIS3DH_ACC_ENABLE	lis3dh.h	76;"	d
+LIS3DH_ACC_ENABLE_ALL_AXES	lis3dh.c	88;"	d	file:
+LIS3DH_ACC_FS_MASK	lis3dh.h	70;"	d
+LIS3DH_ACC_G_16G	lis3dh.h	74;"	d
+LIS3DH_ACC_G_2G	lis3dh.h	71;"	d
+LIS3DH_ACC_G_4G	lis3dh.h	72;"	d
+LIS3DH_ACC_G_8G	lis3dh.h	73;"	d
+LIS3DH_ACC_I2C_ADDR	lis3dh.h	37;"	d
+LIS3DH_ACC_I2C_NAME	lis3dh.h	38;"	d
+LIS3DH_ACC_I2C_SADROOT	lis3dh.h	32;"	d
+LIS3DH_ACC_I2C_SAD_H	lis3dh.h	34;"	d
+LIS3DH_ACC_I2C_SAD_L	lis3dh.h	33;"	d
+LIS3DH_ACC_IOCTL_BASE	lis3dh.h	39;"	d
+LIS3DH_ACC_IOCTL_GET_CHIP_ID	lis3dh.h	64;"	d
+LIS3DH_ACC_IOCTL_GET_COOR_XYZ	lis3dh.h	63;"	d
+LIS3DH_ACC_IOCTL_GET_DELAY	lis3dh.h	42;"	d
+LIS3DH_ACC_IOCTL_GET_ENABLE	lis3dh.h	44;"	d
+LIS3DH_ACC_IOCTL_GET_SOURCE1	lis3dh.h	55;"	d
+LIS3DH_ACC_IOCTL_GET_SOURCE2	lis3dh.h	56;"	d
+LIS3DH_ACC_IOCTL_GET_TAP_SOURCE	lis3dh.h	57;"	d
+LIS3DH_ACC_IOCTL_SET_CONFIG1	lis3dh.h	51;"	d
+LIS3DH_ACC_IOCTL_SET_CONFIG2	lis3dh.h	54;"	d
+LIS3DH_ACC_IOCTL_SET_CTRL_REG3	lis3dh.h	47;"	d
+LIS3DH_ACC_IOCTL_SET_CTRL_REG6	lis3dh.h	48;"	d
+LIS3DH_ACC_IOCTL_SET_DELAY	lis3dh.h	41;"	d
+LIS3DH_ACC_IOCTL_SET_DURATION1	lis3dh.h	49;"	d
+LIS3DH_ACC_IOCTL_SET_DURATION2	lis3dh.h	52;"	d
+LIS3DH_ACC_IOCTL_SET_ENABLE	lis3dh.h	43;"	d
+LIS3DH_ACC_IOCTL_SET_FULLSCALE	lis3dh.h	45;"	d
+LIS3DH_ACC_IOCTL_SET_G_RANGE	lis3dh.h	46;"	d
+LIS3DH_ACC_IOCTL_SET_TAP_CFG	lis3dh.h	59;"	d
+LIS3DH_ACC_IOCTL_SET_TAP_THS	lis3dh.h	61;"	d
+LIS3DH_ACC_IOCTL_SET_TAP_TLAT	lis3dh.h	62;"	d
+LIS3DH_ACC_IOCTL_SET_TAP_TLIM	lis3dh.h	60;"	d
+LIS3DH_ACC_IOCTL_SET_TAP_TW	lis3dh.h	58;"	d
+LIS3DH_ACC_IOCTL_SET_THRESHOLD1	lis3dh.h	50;"	d
+LIS3DH_ACC_IOCTL_SET_THRESHOLD2	lis3dh.h	53;"	d
+LIS3DH_ACC_PM_OFF	lis3dh.c	87;"	d	file:
+ODR1	lis3dh.c	91;"	d	file:
+ODR10	lis3dh.c	92;"	d	file:
+ODR100	lis3dh.c	95;"	d	file:
+ODR1250	lis3dh.c	98;"	d	file:
+ODR200	lis3dh.c	96;"	d	file:
+ODR25	lis3dh.c	93;"	d	file:
+ODR400	lis3dh.c	97;"	d	file:
+ODR50	lis3dh.c	94;"	d	file:
+ODR_MASK	lis3dh.c	90;"	d	file:
+PMODE_MASK	lis3dh.c	89;"	d	file:
+POWON_50HZ	lis3dh.c	734;"	d	file:
+RESUME_ENTRIES	lis3dh.c	143;"	d	file:
+RES_CTRL_REG1	lis3dh.c	123;"	d	file:
+RES_CTRL_REG2	lis3dh.c	124;"	d	file:
+RES_CTRL_REG3	lis3dh.c	125;"	d	file:
+RES_CTRL_REG4	lis3dh.c	126;"	d	file:
+RES_CTRL_REG5	lis3dh.c	127;"	d	file:
+RES_CTRL_REG6	lis3dh.c	128;"	d	file:
+RES_FIFO_CTRL_REG	lis3dh.c	142;"	d	file:
+RES_INT_CFG1	lis3dh.c	129;"	d	file:
+RES_INT_CFG2	lis3dh.c	132;"	d	file:
+RES_INT_DUR1	lis3dh.c	131;"	d	file:
+RES_INT_DUR2	lis3dh.c	134;"	d	file:
+RES_INT_THS1	lis3dh.c	130;"	d	file:
+RES_INT_THS2	lis3dh.c	133;"	d	file:
+RES_REFERENCE_REG	lis3dh.c	141;"	d	file:
+RES_TEMP_CFG_REG	lis3dh.c	140;"	d	file:
+RES_TT_CFG	lis3dh.c	135;"	d	file:
+RES_TT_LIM	lis3dh.c	137;"	d	file:
+RES_TT_THS	lis3dh.c	136;"	d	file:
+RES_TT_TLAT	lis3dh.c	138;"	d	file:
+RES_TT_TW	lis3dh.c	139;"	d	file:
+SAD0H	lis3dh.h	31;"	d
+SAD0L	lis3dh.h	30;"	d
+SENSITIVITY_16G	lis3dh.c	57;"	d	file:
+SENSITIVITY_2G	lis3dh.c	54;"	d	file:
+SENSITIVITY_4G	lis3dh.c	55;"	d	file:
+SENSITIVITY_8G	lis3dh.c	56;"	d	file:
+SIGNTAP	lis3dh.c	113;"	d	file:
+STAP	lis3dh.c	112;"	d	file:
+TEMP_CFG_REG	lis3dh.c	63;"	d	file:
+TT_CFG	lis3dh.c	80;"	d	file:
+TT_LIM	lis3dh.c	83;"	d	file:
+TT_SRC	lis3dh.c	81;"	d	file:
+TT_THS	lis3dh.c	82;"	d	file:
+TT_TLAT	lis3dh.c	84;"	d	file:
+TT_TW	lis3dh.c	85;"	d	file:
+WHOAMI_LIS3DH_ACC	lis3dh.c	60;"	d	file:
+WHO_AM_I	lis3dh.c	62;"	d	file:
+XH	lis3dh.c	104;"	d	file:
+XL	lis3dh.c	105;"	d	file:
+XTAZ	lis3dh.c	116;"	d	file:
+YH	lis3dh.c	102;"	d	file:
+YL	lis3dh.c	103;"	d	file:
+YTAP	lis3dh.c	115;"	d	file:
+ZH	lis3dh.c	100;"	d	file:
+ZL	lis3dh.c	101;"	d	file:
+ZTAP	lis3dh.c	114;"	d	file:
+__LIS3DH_H__	lis3dh.h	24;"	d
+async_queue	lis3dh.c	/^	struct fasync_struct *async_queue;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::fasync_struct	file:
+axis_map_x	lis3dh.h	/^	u8 axis_map_x;$/;"	m	struct:lis3dh_acc_platform_data
+axis_map_y	lis3dh.h	/^	u8 axis_map_y;$/;"	m	struct:lis3dh_acc_platform_data
+axis_map_z	lis3dh.h	/^	u8 axis_map_z;$/;"	m	struct:lis3dh_acc_platform_data
+client	lis3dh.c	/^	struct i2c_client *client;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::i2c_client	file:
+cutoff_ms	lis3dh.c	/^	unsigned int cutoff_ms;$/;"	m	struct:__anon1	file:
+early_suspend	lis3dh.c	/^	struct early_suspend early_suspend;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::early_suspend	file:
+enabled	lis3dh.c	/^	atomic_t enabled;$/;"	m	struct:lis3dh_acc_data	file:
+g_range	lis3dh.h	/^	u8 g_range;$/;"	m	struct:lis3dh_acc_platform_data
+gpio_int1	lis3dh.h	/^	int gpio_int1;$/;"	m	struct:lis3dh_acc_platform_data
+gpio_int2	lis3dh.h	/^	int gpio_int2;$/;"	m	struct:lis3dh_acc_platform_data
+hw_initialized	lis3dh.c	/^	int hw_initialized;$/;"	m	struct:lis3dh_acc_data	file:
+hw_working	lis3dh.c	/^	int hw_working;$/;"	m	struct:lis3dh_acc_data	file:
+input_dev	lis3dh.c	/^	struct input_dev *input_dev;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::input_dev	file:
+input_work	lis3dh.c	/^	struct delayed_work input_work;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::delayed_work	file:
+irq1	lis3dh.c	/^	int irq1;$/;"	m	struct:lis3dh_acc_data	file:
+irq1_work	lis3dh.c	/^	struct work_struct irq1_work;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::work_struct	file:
+irq1_work_queue	lis3dh.c	/^	struct workqueue_struct *irq1_work_queue;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::workqueue_struct	file:
+irq2	lis3dh.c	/^	int irq2;$/;"	m	struct:lis3dh_acc_data	file:
+irq2_work	lis3dh.c	/^	struct work_struct irq2_work;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::work_struct	file:
+irq2_work_queue	lis3dh.c	/^	struct workqueue_struct *irq2_work_queue;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::workqueue_struct	file:
+lis3dh_acc_data	lis3dh.c	/^struct lis3dh_acc_data {$/;"	s	file:
+lis3dh_acc_device_power_off	lis3dh.c	/^static void lis3dh_acc_device_power_off(struct lis3dh_acc_data *acc)$/;"	f	file:
+lis3dh_acc_device_power_on	lis3dh.c	/^static int lis3dh_acc_device_power_on(struct lis3dh_acc_data *acc)$/;"	f	file:
+lis3dh_acc_disable	lis3dh.c	/^static int lis3dh_acc_disable(struct lis3dh_acc_data *acc)$/;"	f	file:
+lis3dh_acc_driver	lis3dh.c	/^static struct i2c_driver lis3dh_acc_driver = {$/;"	v	typeref:struct:i2c_driver	file:
+lis3dh_acc_enable	lis3dh.c	/^static int lis3dh_acc_enable(struct lis3dh_acc_data *acc)$/;"	f	file:
+lis3dh_acc_exit	lis3dh.c	/^module_exit(lis3dh_acc_exit);$/;"	v
+lis3dh_acc_exit	lis3dh.c	/^static void __exit lis3dh_acc_exit(void)$/;"	f	file:
+lis3dh_acc_get_acceleration_data	lis3dh.c	/^static int lis3dh_acc_get_acceleration_data(struct lis3dh_acc_data *acc,$/;"	f	file:
+lis3dh_acc_hw_init	lis3dh.c	/^static int lis3dh_acc_hw_init(struct lis3dh_acc_data *acc)$/;"	f	file:
+lis3dh_acc_i2c_read	lis3dh.c	/^static int lis3dh_acc_i2c_read(struct lis3dh_acc_data *acc, u8 *buf, int len)$/;"	f	file:
+lis3dh_acc_i2c_write	lis3dh.c	/^static int lis3dh_acc_i2c_write(struct lis3dh_acc_data *acc, u8 *buf, int len)$/;"	f	file:
+lis3dh_acc_id	lis3dh.c	/^static const struct i2c_device_id lis3dh_acc_id[]$/;"	v	typeref:struct:i2c_device_id	file:
+lis3dh_acc_init	lis3dh.c	/^module_init(lis3dh_acc_init);$/;"	v
+lis3dh_acc_init	lis3dh.c	/^static int __init lis3dh_acc_init(void)$/;"	f	file:
+lis3dh_acc_input_cleanup	lis3dh.c	/^static void lis3dh_acc_input_cleanup(struct lis3dh_acc_data *acc)$/;"	f	file:
+lis3dh_acc_input_close	lis3dh.c	/^void lis3dh_acc_input_close(struct input_dev *dev)$/;"	f
+lis3dh_acc_input_init	lis3dh.c	/^static int lis3dh_acc_input_init(struct lis3dh_acc_data *acc)$/;"	f	file:
+lis3dh_acc_input_open	lis3dh.c	/^int lis3dh_acc_input_open(struct input_dev *input)$/;"	f
+lis3dh_acc_input_work_func	lis3dh.c	/^static void lis3dh_acc_input_work_func(struct work_struct *work)$/;"	f	file:
+lis3dh_acc_irq1_work_func	lis3dh.c	/^static void lis3dh_acc_irq1_work_func(struct work_struct *work)$/;"	f	file:
+lis3dh_acc_irq2_work_func	lis3dh.c	/^static void lis3dh_acc_irq2_work_func(struct work_struct *work)$/;"	f	file:
+lis3dh_acc_isr1	lis3dh.c	/^static irqreturn_t lis3dh_acc_isr1(int irq, void *dev)$/;"	f	file:
+lis3dh_acc_isr2	lis3dh.c	/^static irqreturn_t lis3dh_acc_isr2(int irq, void *dev)$/;"	f	file:
+lis3dh_acc_misc_data	lis3dh.c	/^struct lis3dh_acc_data *lis3dh_acc_misc_data;$/;"	v	typeref:struct:lis3dh_acc_data
+lis3dh_acc_misc_device	lis3dh.c	/^static struct miscdevice lis3dh_acc_misc_device = {$/;"	v	typeref:struct:miscdevice	file:
+lis3dh_acc_misc_fasync	lis3dh.c	/^static int lis3dh_acc_misc_fasync(int fd, struct file *file, int mode)$/;"	f	file:
+lis3dh_acc_misc_fops	lis3dh.c	/^static const struct file_operations lis3dh_acc_misc_fops = {$/;"	v	typeref:struct:file_operations	file:
+lis3dh_acc_misc_open	lis3dh.c	/^static int lis3dh_acc_misc_open(struct inode *inode, struct file *file)$/;"	f	file:
+lis3dh_acc_misc_read	lis3dh.c	/^static ssize_t lis3dh_acc_misc_read(struct file *file, char __user *buffer,$/;"	f	file:
+lis3dh_acc_misc_release	lis3dh.c	/^static int lis3dh_acc_misc_release(struct inode *inode, struct file *file)$/;"	f	file:
+lis3dh_acc_odr_table	lis3dh.c	/^} lis3dh_acc_odr_table[] = {$/;"	v	typeref:struct:__anon1
+lis3dh_acc_platform_data	lis3dh.h	/^struct lis3dh_acc_platform_data {$/;"	s
+lis3dh_acc_power_on	lis3dh.c	/^int lis3dh_acc_power_on(struct i2c_client *client)$/;"	f
+lis3dh_acc_probe	lis3dh.c	/^static int lis3dh_acc_probe(struct i2c_client *client,const struct i2c_device_id *id)$/;"	f	file:
+lis3dh_acc_register_write	lis3dh.c	/^static int lis3dh_acc_register_write(struct lis3dh_acc_data *acc, u8 *buf,$/;"	f	file:
+lis3dh_acc_remove	lis3dh.c	/^static int lis3dh_acc_remove(struct i2c_client *client)$/;"	f	file:
+lis3dh_acc_report_values	lis3dh.c	/^static void lis3dh_acc_report_values(struct lis3dh_acc_data *acc, int *xyz)$/;"	f	file:
+lis3dh_acc_resume	lis3dh.c	/^static int lis3dh_acc_resume(struct i2c_client *client)$/;"	f	file:
+lis3dh_acc_suspend	lis3dh.c	/^static int lis3dh_acc_suspend(struct i2c_client *client, pm_message_t mesg)$/;"	f	file:
+lis3dh_acc_update_g_range	lis3dh.c	/^int lis3dh_acc_update_g_range(struct lis3dh_acc_data *acc, u8 new_g_range)$/;"	f
+lis3dh_acc_update_odr	lis3dh.c	/^int lis3dh_acc_update_odr(struct lis3dh_acc_data *acc, int poll_interval_ms)$/;"	f
+lis3dh_early_resume	lis3dh.c	/^static void lis3dh_early_resume(struct early_suspend *es)$/;"	f	file:
+lis3dh_early_suspend	lis3dh.c	/^static void lis3dh_early_suspend(struct early_suspend *es)$/;"	f	file:
+lis3dh_i2c_client	lis3dh.c	/^struct i2c_client *lis3dh_i2c_client;$/;"	v	typeref:struct:i2c_client
+lis3dh_of_match	lis3dh.c	/^static const struct of_device_id lis3dh_of_match[] = {$/;"	v	typeref:struct:of_device_id	file:
+lock	lis3dh.c	/^	struct mutex lock;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::mutex	file:
+mask	lis3dh.c	/^	unsigned int mask;$/;"	m	struct:__anon1	file:
+min_interval	lis3dh.h	/^	int min_interval;$/;"	m	struct:lis3dh_acc_platform_data
+negate_x	lis3dh.h	/^	u8 negate_x;$/;"	m	struct:lis3dh_acc_platform_data
+negate_y	lis3dh.h	/^	u8 negate_y;$/;"	m	struct:lis3dh_acc_platform_data
+negate_z	lis3dh.h	/^	u8 negate_z;$/;"	m	struct:lis3dh_acc_platform_data
+on_before_suspend	lis3dh.c	/^	int on_before_suspend;$/;"	m	struct:lis3dh_acc_data	file:
+pdata	lis3dh.c	/^	struct lis3dh_acc_platform_data *pdata;$/;"	m	struct:lis3dh_acc_data	typeref:struct:lis3dh_acc_data::lis3dh_acc_platform_data	file:
+poll_interval	lis3dh.h	/^	int poll_interval;$/;"	m	struct:lis3dh_acc_platform_data
+resume_state	lis3dh.c	/^	u8 resume_state[RESUME_ENTRIES];$/;"	m	struct:lis3dh_acc_data	file:
+sensitivity	lis3dh.c	/^	u8 sensitivity;$/;"	m	struct:lis3dh_acc_data	file:

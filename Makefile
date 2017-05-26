@@ -12,13 +12,17 @@ PWD := ${shell pwd}
 obj-m = lxg-accel.o
 lxg-accel-objs = lis3dh.o
 
-all: BBLIS3DH 
+all: BBLIS3DH BBAPP
 
 .PHONY: clean
 
 BBLIS3DH:
 	make -C $(KERNELDIR) M=$(PWD) modules ARCH=$(ARCH) CROSS_COMPILE=$(ARM_COMPILER)
 
+BBAPP:
+	$(ARM_COMPILER)gcc -o app_sigio app_sigio.c
+
 clean:
 	make -C $(KERNELDIR) M=$(PWD) clean
+	rm -f app_sigio
 

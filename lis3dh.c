@@ -408,6 +408,7 @@ static void lis3dh_acc_irq2_work_func(struct work_struct *work)
 	/*  */
 	pr_debug("%s: IRQ2 triggered\n", LIS3DH_ACC_DEV_NAME);
 }
+
 int lis3dh_acc_update_g_range(struct lis3dh_acc_data *acc, u8 new_g_range)
 {
 	int err;
@@ -458,7 +459,7 @@ int lis3dh_acc_update_g_range(struct lis3dh_acc_data *acc, u8 new_g_range)
 			goto error;
 		acc->resume_state[RES_CTRL_REG4] = updated_val;
 		acc->sensitivity = sensitivity;
-		pr_debug("%s sensitivity %d g-range %d\n", __func__,
+		printk("%s sensitivity %d g-range %d\n", __func__,
 			sensitivity, new_g_range);
 	}
 	return 0;
@@ -530,14 +531,13 @@ static int lis3dh_acc_get_acceleration_data(struct lis3dh_acc_data *acc,
 		       err);
 		return err;
 	}
-	printk("ACC read err%d[%d:%d:%d:%d:%d:%d]\n",err,acc_data[0],acc_data[1],acc_data[2],acc_data[3],acc_data[4],acc_data[5]);
 	hw_d[0] = (((s16) ((acc_data[1] << 8) | acc_data[0])) >> 4);
 	hw_d[1] = (((s16) ((acc_data[3] << 8) | acc_data[2])) >> 4);
 	hw_d[2] = (((s16) ((acc_data[5] << 8) | acc_data[4])) >> 4);
-	//hw_d[0] = hw_d[0] * acc->sensitivity;
-	//hw_d[1] = hw_d[1] * acc->sensitivity;
-	//hw_d[2] = hw_d[2] * acc->sensitivity;
-	xyz[0] = ((acc->pdata->negate_x) ? (-hw_d[acc->pdata->axis_map_x])
+	hw_d[0] = hw_d[0] * acc->sensitivity;
+	hw_d[1] = hw_d[1] * acc->sensitivity;
+	hw_d[2] = hw_d[2] * acc->sensitivity;
+	 xyz[0] = ((acc->pdata->negate_x) ? (-hw_d[acc->pdata->axis_map_x])
 		  : (hw_d[acc->pdata->axis_map_x]));
 	xyz[1] = ((acc->pdata->negate_y) ? (-hw_d[acc->pdata->axis_map_y])
 		  : (hw_d[acc->pdata->axis_map_y]));
@@ -599,27 +599,59 @@ static int lis3dh_acc_misc_open(struct inode *inode, struct file *file)
 	return 0;
 }
 
-static ssize_t lis3dh_acc_misc_read(struct file *file, char __user *buffer,
-                                                size_t length, loff_t *offset)
+static ssize_t lis3dh_acc_misc_read(struct file *filp, char __user *buf,
+                                                size_t len, loff_t *off)
 {   
     int status = 0;
 	int xyz[3] = { 0 };
-	struct lis3dh_acc_data *acc = file->private_data;
+	struct lis3dh_acc_data *acc = filp->private_data;
     
     if (acc && acc->client) {
 
 		status = lis3dh_acc_get_acceleration_data(acc, xyz);
-		if (status < 0)
-			return status;
-        length = snprintf(buffer, length, "%d,%d,%d\n", 
+		if (status >= 0)
+        	len = snprintf(buf, len, "%d,%d,%d\n", 
 									xyz[0], xyz[1], xyz[2]);
 
     } else {
 		printk("Unexpected error %p:%p:%p\n",
 			acc,acc->client,acc->client->adapter);
+		status = -1;
     }
         
-    return ((status==0) ? length : -EIO);
+    return ((status==0) ? len : -EIO);
+}
+
+static ssize_t lis3dh_acc_misc_write(struct file *filp, const char __user *buf,
+												size_t len, loff_t *off)
+{
+    int err = 0;
+	u8 write[3] = { 0 };
+	struct lis3dh_acc_data *acc = filp->private_data;
+    unsigned long threshold = 0;
+	printk("Inside write %c%c%c%c(%d)%c%c, %d\n",buf[0],buf[1],buf[2],
+										buf[3],buf[3],buf[4],buf[5],len);
+    if (buf[0]=='d' && buf[1]=='b' && buf[2]==',') {
+		if(len == 7)
+		threshold = (((int)buf[3] - 48 ) * 100) 
+						+ (((int)buf[4] - 48 ) * 10) 
+						+ (((int)buf[5] - 48 ));
+		else if (len == 6)
+			threshold = (((int)buf[3] - 48 ) * 10) + (((int)buf[4] - 48 ));
+		else
+			threshold = 0; //invalid value or too low
+        printk("Applying new threshold: %lu\n", threshold);
+    }
+	write[0] = (I2C_AUTO_INCREMENT | INT_THS1);
+	acc->resume_state[RES_INT_THS1] = threshold;
+	write[1] = acc->resume_state[RES_INT_THS1];
+	write[2] = acc->resume_state[RES_INT_DUR1];
+	err = lis3dh_acc_i2c_write(acc, write, 2);
+	if (err < 0)
+		return 0;
+
+	printk("Misc write Success\n");
+    return len;
 }
  
 static int lis3dh_acc_misc_fasync(int fd, struct file *file, int mode)
@@ -641,6 +673,7 @@ static const struct file_operations lis3dh_acc_misc_fops = {
 	.owner = THIS_MODULE,
 	.open = lis3dh_acc_misc_open,
 	.read = lis3dh_acc_misc_read,
+	.write = lis3dh_acc_misc_write,
 	.release = lis3dh_acc_misc_release,
 	.fasync = lis3dh_acc_misc_fasync
 
@@ -904,7 +937,7 @@ static int lis3dh_acc_probe(struct i2c_client *client,const struct i2c_device_id
 		err = of_property_read_u32(np, "negate_y", &val);
 		if (err) {
 			dev_err(&client->dev, "dts config negate_y missed");
-			acc->pdata->negate_x = 0;
+			acc->pdata->negate_y = 1;
 		} else
 			acc->pdata->negate_y = val;
 		err = of_property_read_u32(np, "gpio_int1", &val);
@@ -945,15 +978,15 @@ static int lis3dh_acc_probe(struct i2c_client *client,const struct i2c_device_id
 	memset(acc->resume_state, 0, ARRAY_SIZE(acc->resume_state));
 	acc->resume_state[RES_CTRL_REG1] = LIS3DH_ACC_ENABLE_ALL_AXES;
 	acc->resume_state[RES_CTRL_REG2] = 0x00;
-	acc->resume_state[RES_CTRL_REG3] = 0x00;
+	acc->resume_state[RES_CTRL_REG3] = CTRL_REG3_I1_AOI1;
 	acc->resume_state[RES_CTRL_REG4] = 0x00;
 	acc->resume_state[RES_CTRL_REG5] = 0x00;
 	acc->resume_state[RES_CTRL_REG6] = 0x00;
 	acc->resume_state[RES_TEMP_CFG_REG] = 0x00;
 	acc->resume_state[RES_FIFO_CTRL_REG] = 0x00;
-	acc->resume_state[RES_INT_CFG1] = 0x00;
-	acc->resume_state[RES_INT_THS1] = 0x00;
-	acc->resume_state[RES_INT_DUR1] = 0x00;
+	acc->resume_state[RES_INT_CFG1] = 0x3F;
+	acc->resume_state[RES_INT_THS1] = 0x64;//defualt 100
+	acc->resume_state[RES_INT_DUR1] = 0x30;
 	acc->resume_state[RES_INT_CFG2] = 0x00;
 	acc->resume_state[RES_INT_THS2] = 0x00;
 	acc->resume_state[RES_INT_DUR2] = 0x00;
@@ -962,6 +995,7 @@ static int lis3dh_acc_probe(struct i2c_client *client,const struct i2c_device_id
 	acc->resume_state[RES_TT_LIM] = 0x00;
 	acc->resume_state[RES_TT_TLAT] = 0x00;
 	acc->resume_state[RES_TT_TW] = 0x00;
+	acc->pdata->g_range = 0;
 	atomic_set(&acc->enabled, 1);
 	err = lis3dh_acc_update_g_range(acc, acc->pdata->g_range);
 	if (err < 0) {
