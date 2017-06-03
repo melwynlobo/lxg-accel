@@ -75,8 +75,80 @@ THE CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
 /* Accelerometer Sensor Operating Mode */
 #define LIS3DH_ACC_ENABLE		0x01
 #define LIS3DH_ACC_DISABLE		0x00
+#define LXACCELL_OUTPUT_RATE_MASK 0XF0
+#define LXACCELL_OUTPUT_RATE1 0x10
+#define LXACCELL_OUTPUT_RATE10 0x20
+#define LXACCELL_OUTPUT_RATE25 0x30
+#define LXACCELL_OUTPUT_RATE50 0x40
+#define LXACCELL_OUTPUT_RATE100 0x50
+#define LXACCELL_OUTPUT_RATE200 0x60
+#define LXACCELL_OUTPUT_RATE400 0x70
+#define LXACCELL_OUTPUT_RATE1250 0x90
+#define	IA 0x40
+#define	ZH 0x20
+#define	ZL 0x10
+#define	YH 0x08
+#define	YL 0x04
+#define	XH 0x02
+#define	XL 0x01
+
+#define	CONTROL_REG3_I1_AOI1 0x40
+#define	CONTROL_REG6_I2_TAPEN 0x80
+#define	CONTROL_REG6_HLACTIVE 0x02
+/* TAP_SOURCE_REG BIT */
+#define	DTAP 0x20
+#define	STAP 0x10
+#define	SIGNTAP 0x08
+#define	ZTAP 0x04
+#define	YTAP 0x02
+#define	XTAZ 0x01
+#define	FUZZ 32
+#define	FLAT 32
+#define	I2C_RETRY_DELAY 5
+#define	I2C_RETRIES 5
+#define	I2C_AUTO_INCREMENT 0x80
+/* RESUME STATE INDICES */
+#define	RES_CONTROL_REG1 0
+#define	RES_CONTROL_REG2 1
+#define	RES_CONTROL_REG3 2
+#define	RES_CONTROL_REG4 3
+#define	RES_CONTROL_REG5 4
+#define	RES_CONTROL_REG6 5
+#define	RES_INT_CFG1 6
+#define	RES_INT_THS1 7
+#define	RES_INT_DUR1 8
+#define	RES_INT_CFG2 9
+#define	RES_INT_THS2 10
+#define	RES_INT_DUR2 11
+#define	RES_TT_CFG 12
+#define	RES_TT_THS 13
+#define	RES_TT_LIM 14
+#define	RES_TT_TLAT 15
+#define	RES_TT_TW 16
+#define	RES_TEMPERATURE_CONFIG_REG 17
+#define	RES_REFERENCE_REG 18
+#define	RES_FIFO_CONTROL_REG 19
+#define	SAVE 20
+#define DEVICE_INFO "ST, LIS3DH"
+#define DEVICE_INFO_LEN 32
+/* end RESUME STATE INDICES */
+
+#define GPIO_INTERRUPT1 48
+struct {
+	unsigned int lxaccell_upper_ms;
+	unsigned int mask;
+} lxaccell_data_rate[] = {
+	{
+	1, LXACCELL_OUTPUT_RATE1250}, {
+	3, LXACCELL_OUTPUT_RATE400}, {
+	5, LXACCELL_OUTPUT_RATE200}, {
+	10, LXACCELL_OUTPUT_RATE100}, {
+	20, LXACCELL_OUTPUT_RATE50}, {
+	40, LXACCELL_OUTPUT_RATE25}, {
+	100, LXACCELL_OUTPUT_RATE10}, {
+1000, LXACCELL_OUTPUT_RATE1},};
 #ifdef	__KERNEL__
-struct lis3dh_acc_platform_data {
+struct lxaccell_platform_data {
 	int poll_interval;
 	int min_interval;
 	u8 g_range;
