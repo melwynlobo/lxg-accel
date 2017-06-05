@@ -1,9 +1,9 @@
-/******************** (C) COPYRIGHT 2010 STMicroelectronics **********
+/******************** (C) COPYRIGHT 2017 LX Group ***********************
 *
-* File Name          : lis3dh.h
+* File Name          : lis3dh.h STMicroelectronics LIS3DH driver header
 * Authors            : Melwyn Lobo
 *
-***********************************************************************
+*************************************************************************
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License version 2 as
@@ -19,7 +19,7 @@ THE CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
 *
 * THIS SOFTWARE IS SPECIFICALLY DESIGNED FOR EXCLUSIVE USE WITH ST PARTS.
 *
-*************************************************************************/
+***************************************************************************/
 #ifndef	__LIS3DH_H__
 #define	__LIS3DH_H__
 #include	<linux/ioctl.h>	/* For IOCTL macros */
@@ -129,7 +129,7 @@ THE CONTENT OF SUCH SOFTWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
 #define	RES_REFERENCE_REG 18
 #define	RES_FIFO_CONTROL_REG 19
 #define	SAVE 20
-#define DEVICE_INFO "ST, LIS3DH"
+#define DEVICE_INFO "st,BBLIS3DH"
 #define DEVICE_INFO_LEN 32
 /* end RESUME STATE INDICES */
 
@@ -138,15 +138,15 @@ struct {
 	unsigned int lxaccell_upper_ms;
 	unsigned int mask;
 } lxaccell_data_rate[] = {
-	{
-	1, LXACCELL_OUTPUT_RATE1250}, {
-	3, LXACCELL_OUTPUT_RATE400}, {
-	5, LXACCELL_OUTPUT_RATE200}, {
-	10, LXACCELL_OUTPUT_RATE100}, {
-	20, LXACCELL_OUTPUT_RATE50}, {
-	40, LXACCELL_OUTPUT_RATE25}, {
-	100, LXACCELL_OUTPUT_RATE10}, {
-1000, LXACCELL_OUTPUT_RATE1},};
+		{ 1, LXACCELL_OUTPUT_RATE1250 },
+		{ 3, LXACCELL_OUTPUT_RATE400 },
+		{ 5, LXACCELL_OUTPUT_RATE200 },
+		{ 10, LXACCELL_OUTPUT_RATE100 },
+		{ 20, LXACCELL_OUTPUT_RATE50 },
+		{ 40, LXACCELL_OUTPUT_RATE25 },
+		{ 100, LXACCELL_OUTPUT_RATE10 },
+		{ 1000, LXACCELL_OUTPUT_RATE1 },
+	};
 #ifdef	__KERNEL__
 struct lxaccell_platform_data {
 	int poll_interval;

@@ -971,7 +971,7 @@ static const struct i2c_device_id lis3dh_acc_id[]
 = { {LIS3DH_ACC_DEV_NAME, 0}, {}, };
 MODULE_DEVICE_TABLE(i2c, lis3dh_acc_id);
 static const struct of_device_id lis3dh_of_match[] = {
-	{.compatible = "st,BBLIS3DH",},
+	{.compatible = DEVICE_INFO,},
 	{},
 };
 MODULE_DEVICE_TABLE(of, lis3dh_of_match);
