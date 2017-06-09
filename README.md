@@ -92,7 +92,7 @@ Module building procedure
 
 1. Install dynamic cape on to device tree of beaglebone
 
-	echo BB-LX-ACCEL-00A0 > /sys/devices/bone_capemgr.9/slots
+	echo BB-LX-ACCEL > /sys/devices/bone_capemgr.9/slots
 
 1. Goto location of driver module (/lib/modules as per Step 4) and install driver.
 
