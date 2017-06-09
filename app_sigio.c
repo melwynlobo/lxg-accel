@@ -31,7 +31,7 @@ void input_handler(int dummy)
 int main(int argc, char *argv[])
 {
 	int oflags;
-	fd = open("/dev/lis3dh", O_RDWR);
+	fd = open("/dev/lxaccell", O_RDWR);
 	if(fd < 0) {
 		printf("Devices file not present. Insert module\n");
 		return 0;

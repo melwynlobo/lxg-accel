@@ -24,17 +24,17 @@ To install the tool chain for armhf EABI for BeagleBone black cross compilation 
 Module building procedure
 =============================
 
-1. Update dtc tool on local (Debian Wheezy) host. [OPTIONAL STEP if using precompiled lis3dh-00A0.dtbo in this folder]
+1. Update dtc tool on local (Debian Wheezy) host. [OPTIONAL STEP if using precompiled BB-LX-ACCEL-00A0.dtbo in this folder]
 
 	./dtc.sh
 
 1. Compile device tree overlay cape to Binary blob [OPTIONAL STEP if using precompiled lis3dh-00A0.dtbo provided in this folder]
 
-		/usr/local/bin/dtc -O dtb -o lis3dh-00A0.dtbo -b 0 -@ lis3dh.dts	
+		/usr/local/bin/dtc -O dtb -o BB-LX-ACCEL-00A0.dtbo -b 0 -@ lis3dh.dts	
 
-1. After compiling or you can use existing lis3dh-00A0.dtbo, copy the binary to target's /lib/firmware folder:
+1. After compiling or you can use existing BB-LX-ACCEL-00A0.dtbo, copy the binary to target's /lib/firmware folder:
 
-		scp lis3dh-00A0.dtbo 192.168.7.2:/lib/firmware/
+		scp BB-LX-ACCEL-00A0.dtbo 192.168.7.2:/lib/firmware/
 
 1. Compiling lxg-accel.ko driver module, requires kernel headers for the kernel image running on your beagleboe black. 
 	
@@ -86,19 +86,19 @@ Module building procedure
 			
 1. After downloading kernel headers, (I have alredy uploaded linux-3.8.13-bone70.tgz kernel headers used for my beablebone black on this repository, just extract it and type "make" on current folder to build the lxg-accel.ko driver module.. Copy the driver to /lib/modules or any folder of your choice
 
-		scp lxg-accel.ko 192.168.7.2:/lib/modules
+		scp lxdriver.ko 192.168.7.2:/lib/modules
 
 1. Enter target using: "ssh root@192.168.7.2"
 
 1. Install dynamic cape on to device tree of beaglebone
 
-	echo lis3dh > /sys/devices/bone_capemgr.9/slots
+	echo BB-LX-ACCEL-00A0 > /sys/devices/bone_capemgr.9/slots
 
 1. Goto location of driver module (/lib/modules as per Step 4) and install driver.
 
-		insmod lxg-accel.ko
+		insmod lxdriver.ko
 
-1. Read /dev/lis3dh (misc device node)
+1. Read /dev/lxaccell (misc device node)
 	Sample log snippet:
 
 -147,-1005,-43

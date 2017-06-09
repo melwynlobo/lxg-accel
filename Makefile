@@ -9,8 +9,8 @@ ARM_COMPILER := arm-linux-gnueabihf-
 ARCH := arm
 PWD := ${shell pwd}
 
-obj-m = lxg-accel.o
-lxg-accel-objs = lis3dh.o
+obj-m = lxdriver.o
+lxdriver-objs = lis3dh.o
 
 all: BBLIS3DH BBAPP
 
