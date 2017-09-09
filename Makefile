@@ -1,7 +1,6 @@
 #######################################
 #  Makefile for lis3dh accell driver  #
 #  Author : Melwyn Lobo               #
-#  Copyright: LX Group                #
 #######################################
 
 KERNELDIR := linux-headers-3.8.13-bone70

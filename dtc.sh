@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 #########################################################################
-# Copyright (C) 2017 LXGroup
+# Copyright (C) 2017
 #
 # Author: Melwyn Lobo
 # This program is free software; you can redistribute it and/or modify

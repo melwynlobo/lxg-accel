@@ -3,7 +3,6 @@
 # This app subscribes to async notifi- #
 # cations from lis3dh misc device.     #
 #  Author : Melwyn Lobo                #
-#  Copyright: LX Group                 #
 #######################################
 ****************************************/
 
